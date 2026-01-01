@@ -1,0 +1,89 @@
+.audio-recorder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.record-button {
+  padding: 1.5rem 3rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: var(--shadow);
+  min-width: 250px;
+  justify-content: center;
+}
+
+.record-button:hover:not(:disabled) {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.record-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.record-button.recording {
+  background: var(--danger-color);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.recording-indicator {
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.mic-icon {
+  font-size: 1.5rem;
+}
+
+.recording-hint {
+  margin-top: 0.75rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+@media (max-width: 640px) {
+  .record-button {
+    padding: 1.25rem 2rem;
+    font-size: 1rem;
+    min-width: 200px;
+  }
+
+  .mic-icon {
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,121 @@
+.confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.confirmation-dialog {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.2);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.confirmation-dialog h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.confirmation-message {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--bg-color);
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.confirmation-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.confirm-button {
+  padding: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.confirm-button.yes {
+  background: var(--success-color);
+  color: white;
+}
+
+.confirm-button.yes:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.confirm-button.no {
+  background: var(--danger-color);
+  color: white;
+}
+
+.confirm-button.no:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 640px) {
+  .confirmation-dialog {
+    padding: 1.5rem;
+  }
+
+  .confirmation-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .confirmation-message {
+    font-size: 1rem;
+  }
+
+  .confirm-button {
+    font-size: 1rem;
+  }
+}

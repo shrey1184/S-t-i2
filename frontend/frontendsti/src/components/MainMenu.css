@@ -1,0 +1,107 @@
+.main-menu {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.main-menu h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.instruction {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.intent-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.intent-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: var(--shadow);
+  transition: all 0.3s;
+  cursor: default;
+}
+
+.intent-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.intent-icon {
+  font-size: 3rem;
+}
+
+.intent-label {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Intent Card Variants */
+.yes-card {
+  border-left: 4px solid var(--success-color);
+}
+
+.yes-card:hover {
+  border-left-width: 6px;
+}
+
+.no-card {
+  border-left: 4px solid var(--danger-color);
+}
+
+.no-card:hover {
+  border-left-width: 6px;
+}
+
+.help-card {
+  border-left: 4px solid var(--primary-color);
+}
+
+.help-card:hover {
+  border-left-width: 6px;
+}
+
+.emergency-card {
+  border-left: 4px solid var(--warning-color);
+  background: #fef3c7;
+}
+
+.emergency-card:hover {
+  border-left-width: 6px;
+  background: #fde68a;
+}
+
+@media (max-width: 640px) {
+  .intent-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .intent-card {
+    padding: 1.5rem;
+  }
+
+  .intent-icon {
+    font-size: 2.5rem;
+  }
+
+  .intent-label {
+    font-size: 1.125rem;
+  }
+}

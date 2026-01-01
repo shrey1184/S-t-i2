@@ -1,0 +1,154 @@
+.emergency-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(220, 38, 38, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: emergencyFadeIn 0.3s ease-out;
+}
+
+.emergency-overlay.flash {
+  background: rgba(239, 68, 68, 0.98);
+}
+
+@keyframes emergencyFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.emergency-alert {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 3rem 2rem;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+  animation: emergencyShake 0.5s ease-out;
+  position: relative;
+}
+
+@keyframes emergencyShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+  }
+}
+
+.emergency-icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.emergency-alert h2 {
+  font-size: 2.5rem;
+  color: var(--danger-color);
+  margin-bottom: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.emergency-alert p {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.help-coming {
+  font-weight: 700;
+  color: var(--success-color);
+  font-size: 1.75rem !important;
+  margin-top: 1rem !important;
+}
+
+.alert-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.pulse-ring {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 4px solid var(--danger-color);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulsate 2s ease-out infinite;
+  opacity: 0;
+}
+
+.pulse-ring.delay-1 {
+  animation-delay: 0.5s;
+}
+
+.pulse-ring.delay-2 {
+  animation-delay: 1s;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .emergency-alert {
+    padding: 2rem 1.5rem;
+  }
+
+  .emergency-icon {
+    font-size: 4rem;
+  }
+
+  .emergency-alert h2 {
+    font-size: 2rem;
+  }
+
+  .emergency-alert p {
+    font-size: 1.25rem;
+  }
+
+  .help-coming {
+    font-size: 1.5rem !important;
+  }
+
+  .pulse-ring {
+    width: 200px;
+    height: 200px;
+  }
+}
